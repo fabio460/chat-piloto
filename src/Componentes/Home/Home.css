@@ -1,0 +1,89 @@
+.Home{
+    height: 100vh;
+
+}
+.HomeHeader{
+    height: 80px;
+}
+.HomeBody{
+    display: flex;
+}
+.HomeSidebar{
+    
+   width: 30%;
+   background-color: rgb(255, 255, 255);
+}
+.HomeMensage{
+   display: block;
+   padding: 10px;
+   width: 100%;
+}
+
+.sumir{
+   display: block;
+}
+.iconeFecharMensagem{
+    display: none;
+}
+.usuarioLogado{
+   display: flex;
+    
+}
+.usuarioReceptor{
+   display: flex;
+   justify-content: flex-end;
+}
+.mensagens{
+    overflow-y: scroll;
+    width: 100%;
+    height: 400px;
+    transform: rotateX(180deg);
+}
+.mensagensContainer{
+    transform: rotateX(180deg);
+}
+.mensagens::-webkit-scrollbar{
+    width: 6px;
+}
+.mensagens::-webkit-scrollbar-thumb{
+    background-color: rgb(156, 158, 158);
+}
+.usuarioLogado .mensagemItem{
+    background-color: rgb(91, 255, 214);
+    border-radius: 10px;
+    padding: 8px;
+    margin: 5px;
+}
+.usuarioReceptor .mensagemItem{
+    background-color: rgb(205, 238, 255);
+    border-radius: 10px;
+    padding: 8px;
+    margin: 5px;
+}
+.avatar{
+    width: 40px;
+    border-radius: 50%;
+}
+@media (max-width:500px) {
+    .iconeFecharMensagem{
+        display: block;
+    }
+    .HomeSidebar{
+        background-color: white;
+        position: fixed;
+        left: 0;
+        width: 100vw;
+        height: 80vh;
+    }
+    .HomeMensage{
+        
+    }
+    .sumir{
+    
+        position: fixed;
+        left: 0;
+        width: 100vw;
+        margin-left: -100vw;
+        transition: 0.2s;
+    }
+}

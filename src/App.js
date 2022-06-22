@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Home from './Componentes/Home/Home';
+import Login from './Componentes/Login/Login';
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { getAuth } from 'firebase/auth';
 
 function App() {
+  const auth = getAuth();
+  const [user] = useAuthState(auth);
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       {user
+         ?
+          <Home/>
+         :
+          <Login /> 
+       }
     </div>
   );
 }
