@@ -4,7 +4,7 @@ import db from "./fireBaseConfig"
 //const [array,setArray]=useState([])
 var array = []
 const uteis ={
-    abrirTelaDeMensagens : ()=>{
+    abrirMensagens : ()=>{
         document.querySelector(".HomeSidebar").classList.add("sumir")
     },
     fecharMensagens : ()=>{

@@ -37,11 +37,8 @@
     overflow-y: scroll;
     width: 100%;
     height: 400px;
-    transform: rotateX(180deg);
 }
-.mensagensContainer{
-    transform: rotateX(180deg);
-}
+
 .mensagens::-webkit-scrollbar{
     width: 6px;
 }
@@ -75,7 +72,6 @@
         width: 100vw;
         height: 80vh;
     }
-  
     .sumir{
     
         position: fixed;

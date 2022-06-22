@@ -2,7 +2,6 @@ import * as React from 'react';
 import Stack from '@mui/material/Stack';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
-
 import {collection, onSnapshot, query, where} from 'firebase/firestore'
 import db from '../../fireBaseConfig'
 import uteis from '../../funcoesUteis';
@@ -14,10 +13,10 @@ export default function ToggleButtonNotEmpty({user,setVisivel,setRoom}) {
     }
   };
   
-
-  // aqui eu crio um id do usuario logado que seja um inteiro auto increment
   const [idLogado,setIdLogado] =React.useState(null)
+
   async function gerarIdUsuarioLogado(user) {
+    
     let logadoRef = query(collection(db,"user"),where("email","==",user.email))
     onSnapshot(logadoRef,(snapshot)=>{
        snapshot.docs.forEach(async doc=>{
@@ -28,8 +27,7 @@ export default function ToggleButtonNotEmpty({user,setVisivel,setRoom}) {
     })
   }
 
-  
-  // +- 
+
   let [users,setUsers] =React.useState([])
   React.useEffect(()=>{
     let usuariosRef = query(collection(db,'user'))
@@ -47,15 +45,12 @@ export default function ToggleButtonNotEmpty({user,setVisivel,setRoom}) {
   },[user])
   
 
-  //pego os usuarios cadastrados no sistema
-  const getUsuariosCadastrados = (e)=>{
-    uteis.abrirTelaDeMensagens()
+  const getUsers = (e)=>{
+    uteis.abrirMensagens()
     setVisivel(true)
-    setRoom(uteis.gerarSala( e.target.id , idLogado))
+     setRoom(uteis.gerarSala( e.target.id , idLogado))
+ 
   }
-
-
-
   return (
     <Stack direction="column" spacing={3}>
       <ToggleButtonGroup
@@ -67,7 +62,7 @@ export default function ToggleButtonNotEmpty({user,setVisivel,setRoom}) {
       >
        
         {users.map((elem,key)=>{
-          return <ToggleButton value={elem} id={elem.uid} onClick={getUsuariosCadastrados}>
+          return <ToggleButton value={elem} id={elem.uid} onClick={getUsers}>
                     <img style={{borderRadius:"50%",width:"60px"}} alt={elem.nome} src={elem.avatar} id={elem.uid}/>
                 </ToggleButton>
         })}

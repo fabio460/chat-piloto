@@ -47,10 +47,11 @@ export default function Home() {
                         {mensagens.map(elem=>{
                           return<>
                             <div className={
-                              elem.usuarioLogado === user.displayName ?"usuarioLogado":"usuarioReceptor"
+                               elem.usuarioLogado === user.displayName ?"usuarioLogado":"usuarioReceptor"
                             }>
                               <img className='avatar' src={elem.photoURL} alt=''/>
                               <div className='mensagemItem'>{elem.mensagem}</div>
+
                             </div>
                           </>
                         })}
