@@ -32,6 +32,7 @@
 .usuarioReceptor{
    display: flex;
    justify-content: flex-end;
+   
 }
 .mensagens{
     overflow-y: scroll;
@@ -51,12 +52,14 @@
     border-radius: 10px;
     padding: 8px;
     margin: 5px;
+    max-width: 50%;
 }
 .usuarioReceptor .mensagemItem{
     background-color: rgb(205, 238, 255);
     border-radius: 10px;
     padding: 8px;
     margin: 5px;
+    
 }
 .avatar{
     width: 40px;
@@ -108,7 +111,7 @@
     }
     .mensagens{
   
-        height: 300px;
+        height: 350px;
         
     }
 }

@@ -76,8 +76,9 @@ export default function Home() {
                                     } src={elem.photoURL} alt=''/>
                                   </div>
                                   <div>
-                                    <div className='mensagemItem'>{elem.mensagem}</div>
-                                    <div>{elem.data.toString()}</div>
+                                    <div className='mensagemItem'>{elem.mensagem}
+                                       <div>{elem.data.toString()}</div>
+                                    </div>
                                   </div>
                                   <div className='imagemAvatarItem'>
                                     <img className={
