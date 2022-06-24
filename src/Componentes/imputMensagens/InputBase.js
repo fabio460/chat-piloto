@@ -7,7 +7,7 @@ import Fab from '@mui/material/Fab';
 import NearMeIcon from '@mui/icons-material/NearMe';
 import {useAuthState} from 'react-firebase-hooks/auth'
 import { getAuth } from 'firebase/auth';
-import { addDoc, collection } from 'firebase/firestore';
+import { doc, setDoc } from 'firebase/firestore';
 import db from '../../fireBaseConfig';
 
 
@@ -20,16 +20,30 @@ export default function InputBase({room,idReceptor}) {
     const enviar =async ()=>{
        if(mensagem !== ""){
         try {
-          console.log(room+' '+idReceptor+' '+user.displayName)
-          const docRef = await addDoc(collection(db, "chats"), {
-            data:new Date().getHours()+":"+new Date().getMinutes(),
+          
+          let hora = new Date().getHours()
+          let minutos = new Date().getMinutes()
+          if (hora < 10) {
+            hora.toString()
+            hora = '0' + hora
+          }
+          if (minutos < 10) {
+            minutos.toString()
+            minutos = '0' + minutos
+          }
+          let documento =  Math.random().toString()
+          const docRef = await setDoc(doc(db, "chats",documento), {
+            data:hora+":"+minutos,
             mensagem,
             photoURL:user.photoURL,
             sala:room,
             uid:idReceptor,
-            usuarioLogado:user.displayName
+            usuarioLogado:user.displayName,
+            documento
          });
-         console.log(docRef)
+         hora = new Date().getHours()
+         minutos = new Date().getMinutes()
+         console.log(docRef._key.path.segments[1])
         } catch (error) {
           console.log(error)
         }

@@ -47,6 +47,8 @@ export default function ToggleButtonNotEmpty({user,setVisivel,setRoom,getIdRecep
 
   const getUsers = (e)=>{
     uteis.abrirMensagens()
+    
+    
     setVisivel(true)
      setRoom(uteis.gerarSala( e.target.id , idLogado))
      //getIdReceptor()
@@ -55,6 +57,7 @@ export default function ToggleButtonNotEmpty({user,setVisivel,setRoom,getIdRecep
       document.querySelector(".mensagens").scrollTop=10000
     }
     scroll()
+
   }
   return (
     <Stack direction="column" spacing={3}>

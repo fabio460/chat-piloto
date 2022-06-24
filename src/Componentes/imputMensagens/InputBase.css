@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: center;
     height: 70px;
-
+    
 }
 .display{
     margin: auto;
@@ -21,6 +21,9 @@
     justify-content: center;
     align-items: center;
     height: 30px;
+}
+.inputMensagemContainer{
+    background-color: rgb(223, 239, 253);
 }
 @media (max-width:500px) {
     .display{

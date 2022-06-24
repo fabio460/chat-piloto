@@ -5,19 +5,12 @@ import db from "./fireBaseConfig"
 var array = []
 const uteis ={
     abrirMensagens : ()=>{
-        document.querySelector(".HomeSidebar").classList.add("sumir")
-      
+        document.querySelector(".HomeSidebar").classList.add("sumir");
+        document.querySelector(".HomeMensage").style="display:block";
     },
     fecharMensagens : ()=>{
-        document.querySelector(".HomeSidebar").classList.remove("sumir")
-        
-    },
-
-    mostrarInput:()=>{
-        document.querySelector(".inputMensage").classList.add("display")
-    },
-    esconderInput:()=>{
-        document.querySelector(".inputMensage").classList.remove("display")
+        document.querySelector(".HomeSidebar").classList.remove("sumir");
+        document.querySelector(".HomeMensage").style="display:none";
     },
     gerarSala:(a,b)=> {
         let frase = a.toString() + b.toString()
