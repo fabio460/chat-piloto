@@ -28,7 +28,7 @@ export default function Home() {
         array.push(elem.data())
       })
       setMensagens(array)
-      console.log()
+    
       let arrayZerado = array.length
       if (arrayZerado === 0) {
         setIdDaMensagem(1)
@@ -46,7 +46,7 @@ export default function Home() {
  
   const getDocumento = (doc)=>{
     //setNomeDoDocumento(doc)
-    alert(doc) 
+    return doc 
   }
   const hendleClose = ()=>{
     uteis.fecharMensagens()

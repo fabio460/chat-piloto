@@ -1,10 +1,10 @@
 import React from 'react'
-import SimpleDialogDemo from './SimpleDialog'
 import InputBase from '../imputMensagens/InputBase'
 
+import AlertDialog from './AlertDialog';
 export default function Mensagens({mensagens,room,getDocumento,user,idDaMensagem}) {
   const getId = (e)=>{
-     return e.target.id
+     alert(e.target.id)
   }
   return (
     <div>
@@ -24,7 +24,7 @@ export default function Mensagens({mensagens,room,getDocumento,user,idDaMensagem
                                     } src={elem.photoURL} alt=''/>
                                   </div>
                                   <div style={{display:"flex"}}>
-                                  <span><SimpleDialogDemo idDaMensagem={idDaMensagem} id={elem.documento} getId={getId}/></span>
+                                  <span  id={elem.documento}><AlertDialog id={elem.documento} onClick={getId}/></span>
                                     <div onClick={()=>getDocumento(elem.documento)} className='mensagemItem'>{elem.mensagem}
                                        
                                        <div className={
