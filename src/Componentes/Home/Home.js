@@ -77,7 +77,11 @@ export default function Home() {
                                   </div>
                                   <div>
                                     <div className='mensagemItem'>{elem.mensagem}
-                                       <div>{elem.data.toString()}</div>
+                                       <div className={
+                                          elem.usuarioLogado === user.displayName ?
+                                          "dataLeft ":
+                                          "dataRigth "
+                                       }>{elem.data.toString()}</div>
                                     </div>
                                   </div>
                                   <div className='imagemAvatarItem'>
