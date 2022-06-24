@@ -45,7 +45,7 @@ export default function Home() {
       uteis.scroll()
     }, 400);
     
-  },[room])
+  },[room,idDaMensagem])
  
   console.log(visivel)
   return (
