@@ -1,0 +1,32 @@
+.inputMensage{
+    margin-top: 20px;
+    display: flex;
+    width: 70%;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+
+}
+.display{
+    margin: auto;
+ }
+.inputMessagItem{
+    width: 100%;
+    border-radius: 20px;
+    font-size: 18px;
+    padding: 5px 15px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+}
+@media (max-width:500px) {
+    .display{
+        display: none;
+     }
+     .inputMensage{
+        width: 95%;
+     }
+}
