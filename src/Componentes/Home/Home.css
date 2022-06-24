@@ -106,4 +106,9 @@
         margin-left: -100vw;
         transition: 0.2s;
     }
+    .mensagens{
+  
+        height: 300px;
+        
+    }
 }
