@@ -39,9 +39,7 @@
     height: 400px;
     
 }
-.mensagensContainer{
-    
-}
+
 .mensagens::-webkit-scrollbar{
     width: 6px;
 }
