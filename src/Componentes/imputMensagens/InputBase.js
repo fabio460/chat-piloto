@@ -3,8 +3,8 @@ import React,{useState} from 'react'
 import './InputBase.css'
 import Box from '@mui/material/Box';
 import Fab from '@mui/material/Fab';
-import EditIcon from '@mui/icons-material/Edit';
 
+import NearMeIcon from '@mui/icons-material/NearMe';
 import {useAuthState} from 'react-firebase-hooks/auth'
 import { getAuth } from 'firebase/auth';
 import { addDoc, collection } from 'firebase/firestore';
@@ -45,8 +45,8 @@ export default function InputBase({room,idReceptor}) {
     <div className='inputMensage'>
         <div className='inputMessagItem'><input className='inputMessagItem' onChange={e=>setMensagem(e.target.value)} value={mensagem}/></div>
         <Box sx={{ marginRight:"0px" }}>
-          <Fab color="secondary" aria-label="edit" sx={{width:"40px",height:"40px",marginTop:"13px"}} onClick={enviar}>
-            <EditIcon sx={{width:"30px"}}/>
+          <Fab color="success" aria-label="edit" sx={{width:"40px",height:"40px",marginTop:"13px"}} onClick={enviar}>
+            <NearMeIcon sx={{width:"30px"}}/>
           </Fab>
         </Box>   
     </div>
