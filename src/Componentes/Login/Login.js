@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-
+import './Login.css'
 import { addDoc, collection, onSnapshot, orderBy, query, where } from 'firebase/firestore';
 import db from '../../fireBaseConfig';
-
+import Button from '@mui/material/Button';
 export default function Login() {
   const auth = getAuth();
   
@@ -61,9 +61,10 @@ export default function Login() {
     
   //console.log(db) 
   return (
-    <div>
+    <div className='loginContainer'>
       <h1>Login</h1>
-      <button onClick={logar}>Logar com Google</button>
+    
+      <Button variant="contained" onClick={logar}>Logar com Google</Button>
     </div>
   )
 }
