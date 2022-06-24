@@ -21,9 +21,7 @@ export default function AlertDialog({id}) {
 
   const deletar = async()=>{
     try {
-        
-        await deleteDoc(doc(db, "chats", id));
-        console.log('deletado com sucessso')
+        await deleteDoc(doc(db, "chats", id))
     } catch (error) {
         console.log(error)
     }

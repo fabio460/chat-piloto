@@ -3,9 +3,7 @@ import InputBase from '../imputMensagens/InputBase'
 
 import AlertDialog from './AlertDialog';
 export default function Mensagens({mensagens,room,getDocumento,user,idDaMensagem}) {
-  const getId = (e)=>{
-     alert(e.target.id)
-  }
+  
   return (
     <div>
         <div className='container'>
@@ -24,7 +22,7 @@ export default function Mensagens({mensagens,room,getDocumento,user,idDaMensagem
                                     } src={elem.photoURL} alt=''/>
                                   </div>
                                   <div style={{display:"flex"}}>
-                                  <span  id={elem.documento}><AlertDialog id={elem.documento} onClick={getId}/></span>
+                                  <span  id={elem.documento}><AlertDialog id={elem.documento}/></span>
                                     <div onClick={()=>getDocumento(elem.documento)} className='mensagemItem'>{elem.mensagem}
                                        
                                        <div className={

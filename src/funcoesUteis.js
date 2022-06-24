@@ -1,5 +1,5 @@
 
-import { collection, onSnapshot, query } from "firebase/firestore"
+import { addDoc, collection, onSnapshot, query } from "firebase/firestore"
 import db from "./fireBaseConfig"
 //const [array,setArray]=useState([])
 var array = []
@@ -37,6 +37,16 @@ const uteis ={
      },
      scroll:()=>{
         document.querySelector(".mensagens").scrollTop=100000000
+     },
+     cadastrarUsuario:async (email,nome,senha,avatar,uid,data)=>{
+            addDoc(collection(db, "user"), {
+                email,
+                nome,
+                senha,
+                avatar,
+                uid,
+                data
+                });
      }
 }
 export default uteis

@@ -18,10 +18,17 @@ export default function Home() {
   const [mensagens,setMensagens]=useState([])
   const [getIdReceptor]=useState()
   const [idDaMensagem,setIdDaMensagem]=useState()
+  
   //const [setNomeDoDocumento]=useState("")
+
+
   useEffect(()=>{
     const mensageRef = query(collection(db,"chats"),where("sala","==",room),orderBy('uid'))
     
+  
+
+
+ 
     onSnapshot(mensageRef,snap=>{
       let array=[]
       snap.docs.forEach(elem=>{
