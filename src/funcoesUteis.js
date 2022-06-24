@@ -6,9 +6,18 @@ var array = []
 const uteis ={
     abrirMensagens : ()=>{
         document.querySelector(".HomeSidebar").classList.add("sumir")
+      
     },
     fecharMensagens : ()=>{
         document.querySelector(".HomeSidebar").classList.remove("sumir")
+        
+    },
+
+    mostrarInput:()=>{
+        document.querySelector(".inputMensage").classList.add("display")
+    },
+    esconderInput:()=>{
+        document.querySelector(".inputMensage").classList.remove("display")
     },
     gerarSala:(a,b)=> {
         let frase = a.toString() + b.toString()
@@ -32,6 +41,9 @@ const uteis ={
           array=aux
         })
         return array
+     },
+     scroll:()=>{
+        document.querySelector(".mensagens").scrollTop=100000000
      }
 }
 export default uteis

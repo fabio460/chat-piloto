@@ -5,7 +5,7 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import {collection, onSnapshot, query, where} from 'firebase/firestore'
 import db from '../../fireBaseConfig'
 import uteis from '../../funcoesUteis';
-export default function ToggleButtonNotEmpty({user,setVisivel,setRoom}) {
+export default function ToggleButtonNotEmpty({user,setVisivel,setRoom,getIdReceptor}) {
   const [alignment, setAlignment] = React.useState('left');
   const handleAlignment = (event, newAlignment) => {
     if (newAlignment !== null) {
@@ -49,7 +49,12 @@ export default function ToggleButtonNotEmpty({user,setVisivel,setRoom}) {
     uteis.abrirMensagens()
     setVisivel(true)
      setRoom(uteis.gerarSala( e.target.id , idLogado))
- 
+     //getIdReceptor()
+     getIdReceptor(e.target.id)
+     function scroll(params) {
+      document.querySelector(".mensagens").scrollTop=10000
+    }
+    scroll()
   }
   return (
     <Stack direction="column" spacing={3}>
