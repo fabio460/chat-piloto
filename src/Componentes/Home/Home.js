@@ -25,10 +25,6 @@ export default function Home() {
   useEffect(()=>{
     const mensageRef = query(collection(db,"chats"),where("sala","==",room),orderBy('uid'))
     
-  
-
-
- 
     onSnapshot(mensageRef,snap=>{
       let array=[]
       snap.docs.forEach(elem=>{
@@ -61,16 +57,13 @@ export default function Home() {
   }
   return (
     <div className='Home'>
-        <div className='HomeHeader'><ResponsiveAppBar user={user}/></div>
+        
         <div className='HomeBody'>
-
-
           <div className='HomeSidebar '>
             <ToggleButtonNotEmpty user={user} setVisivel={setVisivel} setRoom={setRoom} getIdReceptor={getIdReceptor}/>
           </div>
-
-
           <div className='HomeMensage'>
+          <div className='HomeHeader'><ResponsiveAppBar user={user}/></div>
             <div className='iconeFecharMensagem'><ArrowBackIosNewIcon onClick={ hendleClose} /></div>
             <div className='HomeMessageBody'>
             {room === 0 

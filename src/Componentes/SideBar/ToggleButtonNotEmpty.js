@@ -47,7 +47,7 @@ export default function ToggleButtonNotEmpty({user,setVisivel,setRoom,getIdRecep
 
   const getUsers = (e)=>{
     uteis.abrirMensagens()
-    
+    //uteis.mostrarInput()
     
     setVisivel(true)
      setRoom(uteis.gerarSala( e.target.id , idLogado))
@@ -70,8 +70,15 @@ export default function ToggleButtonNotEmpty({user,setVisivel,setRoom,getIdRecep
       >
        
         {users.map((elem,key)=>{
-          return <ToggleButton value={elem} id={elem.uid} onClick={getUsers}>
-                    <img style={{borderRadius:"50%",width:"60px"}} alt={elem.nome} src={elem.avatar} id={elem.uid}/>
+          return <ToggleButton value={elem.uid} id={elem.uid}  aria-label="left aligned" 
+                    sx={{border:"none"}}
+                  >
+                    <div onClick={getUsers} style={{display:"flex",width:"100%",justifyContent:"flex-start"}} id={elem.uid}>
+                       <img style={{borderRadius:"50%",width:"60px",marginRight:"10px"}} alt={elem.nome} src={elem.avatar} id={elem.uid}/>
+                       <div  id={elem.uid}>{elem.nome}</div>
+                       
+                    </div>
+                    
                 </ToggleButton>
         })}
       </ToggleButtonGroup>
