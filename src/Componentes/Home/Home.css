@@ -115,7 +115,7 @@
     }
     .HomeMensage{
         display: none;
-        padding: 10px;
+        padding: 0px;
         width: 100%;
      }
     .sumir{
@@ -124,7 +124,7 @@
     }
     .mensagens{
   
-        height: 350px;
+        height: 360px;
         
     }
 }
