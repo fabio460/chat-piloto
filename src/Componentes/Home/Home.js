@@ -9,6 +9,8 @@ import ToggleButtonNotEmpty from '../SideBar/ToggleButtonNotEmpty';
 import { collection,where, onSnapshot, orderBy, query } from 'firebase/firestore';
 import db from '../../fireBaseConfig';
 import Mensagens from '../Mensagens/Mensagens';
+import { Avatar } from '@mui/material';
+import CustomizedInputBase from '../CustomizedInputBase';
 
 export default function Home() {
   const auth = getAuth();
@@ -59,6 +61,13 @@ export default function Home() {
     <div className='Home'>
         <div className='HomeBody'>
           <div className='HomeSidebar '>
+            <div className='HomeSideBarHeader'>
+              <div className='HomeSideBarHeaderLogo'><h1>chat</h1></div>
+              <div className='HomeSideBarHeaderAvatar'><Avatar src={user.photoURL}/></div>
+            </div>
+            <div className='HomeSideBarHeaderInput'>
+              <CustomizedInputBase/>
+            </div>
             <ToggleButtonNotEmpty user={user} setVisivel={setVisivel} setRoom={setRoom} getIdReceptor={getIdReceptor}/>
           </div>
           <div className='HomeMensage'>

@@ -11,7 +11,7 @@ export default function CustomizedInputBase() {
   return (
     <Paper
       component=""
-      sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 }}
+      sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 320,margin:"auto ",borderRadius:"30px" }}
     >
       <IconButton sx={{ p: '10px' }} aria-label="menu">
         <MenuIcon />

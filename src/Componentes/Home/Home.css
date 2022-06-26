@@ -9,9 +9,9 @@
     display: flex;
 }
 .HomeSidebar{
-    
+   height: 100vh; 
    width: 30%;
-   background-color: rgb(255, 255, 255);
+   background-color: rgb(220, 255, 243);
 }
 .HomeMensage{
    display: block;
@@ -99,6 +99,18 @@
     text-align: end;
     font-size: 13px;
 }
+.HomeSideBarHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:0px 10px;
+}
+.HomeSideBarHeaderAvatar{
+    display: none;
+}
+.HomeSideBarHeaderInput{
+    margin: 10px 0px;
+}
 @media (max-width:500px) {
     .iconeFecharMensagem{
         display: block;
@@ -108,7 +120,7 @@
     
     }
     .HomeSidebar{
-        background-color: aquamarine;
+        background-color: rgb(220, 255, 243);
         width: 100vw;
         height: 100vh;
     }
@@ -125,5 +137,8 @@
   
         height: 382px;
         
+    }
+    .HomeSideBarHeaderAvatar{
+        display: block;
     }
 }

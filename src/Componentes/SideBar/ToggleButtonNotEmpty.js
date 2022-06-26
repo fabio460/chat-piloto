@@ -5,6 +5,7 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import {collection, onSnapshot, query, where} from 'firebase/firestore'
 import db from '../../fireBaseConfig'
 import uteis from '../../funcoesUteis';
+import { padding } from '@mui/system';
 export default function ToggleButtonNotEmpty({user,setVisivel,setRoom,getIdReceptor}) {
   const [alignment, setAlignment] = React.useState('left');
   const handleAlignment = (event, newAlignment) => {
@@ -60,20 +61,28 @@ export default function ToggleButtonNotEmpty({user,setVisivel,setRoom,getIdRecep
 
   }
   return (
-    <Stack direction="column" spacing={3}>
+    <Stack direction="column" spacing={0}>
       <ToggleButtonGroup
         value={alignment}
         exclusive
         onChange={handleAlignment}
         aria-label="text alignment"
-        sx={{display:"flex",flexDirection:"column"}}
+        sx={{display:"flex",flexDirection:"column",margin:"0px"}}
       >
        
         {users.map((elem,key)=>{
-          return <ToggleButton value={elem.uid} id={elem.uid}  aria-label="left aligned" 
+          return <ToggleButton value={elem.uid} id={elem.uid}
                     sx={{border:"none"}}
                   >
-                    <div onClick={getUsers} style={{display:"flex",width:"100%",justifyContent:"flex-start"}} id={elem.uid}>
+                    <div onClick={getUsers} style={{
+                        display:"flex",
+                        justifyContent:"flex-start",
+                        width:"100%",
+                        margin:"auto",
+                        borderRadius:"10px",
+                        background:"white",
+                        padding:"5px"
+                    }} id={elem.uid}>
                        <img style={{borderRadius:"50%",width:"60px",marginRight:"10px"}} alt={elem.nome} src={elem.avatar} id={elem.uid}/>
                        <div  id={elem.uid}>{elem.nome}</div>
                        
