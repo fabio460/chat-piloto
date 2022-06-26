@@ -57,7 +57,6 @@ export default function Home() {
   }
   return (
     <div className='Home'>
-        
         <div className='HomeBody'>
           <div className='HomeSidebar '>
             <ToggleButtonNotEmpty user={user} setVisivel={setVisivel} setRoom={setRoom} getIdReceptor={getIdReceptor}/>
