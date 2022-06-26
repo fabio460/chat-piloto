@@ -1,5 +1,5 @@
 .inputMensage{
-    margin-top: 20px;
+    
     display: flex;
     width: 70%;
     margin: auto;
@@ -15,7 +15,7 @@
     width: 100%;
     border-radius: 20px;
     font-size: 18px;
-    padding: 5px 15px;
+    padding: 0px 15px;
     margin: auto;
     display: flex;
     justify-content: center;
@@ -23,7 +23,8 @@
     height: 30px;
 }
 .inputMensagemContainer{
-    background-color: rgb(223, 239, 253);
+    background-color: rgb(93, 176, 249);
+    
 }
 @media (max-width:500px) {
     .display{

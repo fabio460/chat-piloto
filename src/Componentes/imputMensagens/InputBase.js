@@ -59,7 +59,7 @@ export default function InputBase({room,idReceptor}) {
     <div className='inputMensage'>
         <div className='inputMessagItem'><input className='inputMessagItem' onChange={e=>setMensagem(e.target.value)} value={mensagem}/></div>
         <Box sx={{ marginRight:"0px" }}>
-          <Fab color="success" aria-label="edit" sx={{width:"40px",height:"40px",marginTop:"13px"}} onClick={enviar}>
+          <Fab color="success" aria-label="edit" sx={{width:"40px",height:"40px",marginTop:"0"}} onClick={enviar}>
             <NearMeIcon sx={{width:"30px"}}/>
           </Fab>
         </Box>   

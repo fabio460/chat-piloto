@@ -4,7 +4,7 @@ import uteis from '../../funcoesUteis'
 import { getAuth } from 'firebase/auth'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import ResponsiveAppBar from '../AppBar/ResponsiveAppBar';
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+
 import ToggleButtonNotEmpty from '../SideBar/ToggleButtonNotEmpty';
 import { collection,where, onSnapshot, orderBy, query } from 'firebase/firestore';
 import db from '../../fireBaseConfig';
@@ -53,10 +53,7 @@ export default function Home() {
     //setNomeDoDocumento(doc)
     return doc 
   }
-  const hendleClose = ()=>{
-    uteis.fecharMensagens()
-    uteis.esconderInput()
-  }
+
   return (
     <div className='Home'>
         <div className='HomeBody'>
@@ -68,11 +65,14 @@ export default function Home() {
             <div className='HomeSideBarHeaderInput'>
               <CustomizedInputBase/>
             </div>
-            <ToggleButtonNotEmpty user={user} setVisivel={setVisivel} setRoom={setRoom} getIdReceptor={getIdReceptor}/>
+            <div className='HomeSideBarHeaderUsuarios'>
+                <ToggleButtonNotEmpty user={user} setVisivel={setVisivel} setRoom={setRoom} getIdReceptor={getIdReceptor}/>
+            </div>
+            
           </div>
           <div className='HomeMensage'>
           <div className='HomeHeader'><ResponsiveAppBar user={user}/></div>
-            <div className='iconeFecharMensagem'><ArrowBackIosNewIcon onClick={ hendleClose} /></div>
+            
             <div className='HomeMessageBody'>
             {room === 0 
               ?<div>não ha mensagens</div>
