@@ -9,10 +9,9 @@
     display: flex;
 }
 .HomeSidebar{
-   height: 100vh; 
-   width: 30%;
-   
-   
+   height: 95vh; 
+   width: 30%; 
+   margin: 10px;
 }
 .HomeMensage{
    display: block;
@@ -150,4 +149,7 @@
     .HomeSideBarHeaderAvatar{
         display: block;
     }
+    .HomeSidebar{
+        margin: 0px; 
+     }
 }
