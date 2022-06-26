@@ -108,10 +108,10 @@
     
     }
     .HomeSidebar{
-        background-color: white;
+        background-color: rgb(245, 97, 97);
         
         width: 100vw;
-        height: 80vh;
+        height: 100vh;
     }
     .HomeMensage{
         display: none;
