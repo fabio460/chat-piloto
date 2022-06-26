@@ -11,7 +11,7 @@
 .HomeSidebar{
    height: 95vh; 
    width: 30%; 
-   margin: 10px;
+   padding: 10px;
 }
 .HomeMensage{
    display: block;
@@ -150,6 +150,6 @@
         display: block;
     }
     .HomeSidebar{
-        margin: 0px; 
-     }
+        margin: 0px;
+    }
 }
