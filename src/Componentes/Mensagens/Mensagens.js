@@ -1,6 +1,7 @@
 import React from 'react'
 import CustomizedInputBase from '../Mensagens/CustomizedInputBase';
-
+import './Mensagens.css'
+import '../imputMensagens/InputBase.css'
 
 import AlertDialog from './AlertDialog';
 export default function Mensagens({mensagens,room,getDocumento,user,idDaMensagem}) {
