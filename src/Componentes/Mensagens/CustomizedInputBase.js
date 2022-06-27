@@ -9,20 +9,24 @@ import MenuIcon from '@mui/icons-material/Menu';
 import NearMeIcon from '@mui/icons-material/NearMe';
 import {useAuthState} from 'react-firebase-hooks/auth'
 import { getAuth } from 'firebase/auth';
-import { doc, setDoc } from 'firebase/firestore';
+import { collection, doc, onSnapshot, query, setDoc, updateDoc, where } from 'firebase/firestore';
 import db from '../../fireBaseConfig';
-export default function CustomizedInputBase({room,idReceptor}) {
+import { useSelector } from 'react-redux';
+export default function CustomizedInputBase({room,idReceptor,idDaMensagem}) {
 
 
   const [mensagem,setMensagem]=React.useState([])
+  
   const auth = getAuth();
   const [user] = useAuthState(auth);
+    const documents = useSelector(state=>state.documento.doc)
     const enviar =async ()=>{
        if(mensagem !== ""){
         try {
           
           let hora = new Date().getHours()
           let minutos = new Date().getMinutes()
+          
           if (hora < 10) {
             hora.toString()
             hora = '0' + hora
@@ -37,13 +41,36 @@ export default function CustomizedInputBase({room,idReceptor}) {
             mensagem,
             photoURL:user.photoURL,
             sala:room,
-            uid:idReceptor,
+            uid:idDaMensagem,
             usuarioLogado:user.displayName,
             documento
-         });
+          }
+         );
+         let ultimaMensagem = [mensagem,hora+":"+minutos]
+         console.log(docRef)
+         async function upDate() {
+
+          const ref = query(collection(db,"user"),where("uid","==",parseInt(idReceptor)))
+          
+          onSnapshot(ref,(snap)=>{
+            let array = []
+            snap.docs.forEach(doc=>{
+             
+              array.push(doc._key.path.segments[6])
+            })
+            //setDocuments(array[0])
+          })
+
+      
+          let usuarioReceptorRef = doc(db, "user", documents)
+          await updateDoc(usuarioReceptorRef, {
+            ultimaMensagem,
+            hora:parseInt(new Date().getTime())
+          }); 
+         }
+         upDate()
          hora = new Date().getHours()
          minutos = new Date().getMinutes()
-         console.log(docRef._key.path.segments[1])
         } catch (error) {
           console.log(error)
         }
@@ -51,6 +78,8 @@ export default function CustomizedInputBase({room,idReceptor}) {
         function scroll(params) {
           document.querySelector(".mensagens").scrollTop=1000000
         }
+
+
         scroll()
        }
     }

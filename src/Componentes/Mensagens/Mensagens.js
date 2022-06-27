@@ -4,7 +4,7 @@ import './Mensagens.css'
 import '../imputMensagens/InputBase.css'
 
 import AlertDialog from './AlertDialog';
-export default function Mensagens({mensagens,room,getDocumento,user,idDaMensagem}) {
+export default function Mensagens({mensagens,room,getDocumento,user,idDaMensagem,idReceptor}) {
   
   return (
     <div>
@@ -75,7 +75,7 @@ export default function Mensagens({mensagens,room,getDocumento,user,idDaMensagem
                  
                  <div className='inputMensagemContainer'>
                     {/* <InputBase room={room} idReceptor={idDaMensagem}/> */}
-                    <CustomizedInputBase room={room} idReceptor={idDaMensagem}/>
+                    <CustomizedInputBase room={room} idDaMensagem={idDaMensagem} idReceptor={idReceptor}/>
                   </div>
               </div>
     </div>

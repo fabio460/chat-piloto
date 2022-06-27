@@ -18,7 +18,7 @@ export default function Home() {
   const [visivel,setVisivel]=useState(true)
   const [room,setRoom]=useState(0)
   const [mensagens,setMensagens]=useState([])
-  const [getIdReceptor]=useState()
+  const [idReceptor,getIdReceptor]=useState()
   const [idDaMensagem,setIdDaMensagem]=useState()
   
   //const [setNomeDoDocumento]=useState("")
@@ -79,7 +79,7 @@ export default function Home() {
                 <AnnouncementIcon  sx={{fontSize:"200px",color:"green"}}/>
                 <h1> não ha mensagens</h1>
               </div>
-              :<Mensagens user={user} room={room} getDocumento={getDocumento} idDaMensagem={idDaMensagem} mensagens={mensagens}/>
+              :<Mensagens user={user} room={room} getDocumento={getDocumento} idDaMensagem={idDaMensagem} mensagens={mensagens} idReceptor={idReceptor}/>
             }
             </div>
           </div>
