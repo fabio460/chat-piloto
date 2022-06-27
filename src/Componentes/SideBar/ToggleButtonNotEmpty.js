@@ -28,8 +28,6 @@ export default function ToggleButtonNotEmpty({user,setVisivel,setRoom,getIdRecep
        })
     })
   }
-
-
   let [users,setUsers] =React.useState([])
   React.useEffect(()=>{
     let usuariosRef = query(collection(db,'user'),orderBy("hora","desc"))
