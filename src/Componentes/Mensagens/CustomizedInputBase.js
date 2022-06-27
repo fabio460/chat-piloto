@@ -54,7 +54,11 @@ export default function CustomizedInputBase({room,idReceptor}) {
         scroll()
        }
     }
-
+    const enviarComEnter= (e)=>{
+         if(e.code === "Enter"){
+           enviar()
+         }
+    }
   return (
     <Paper
       component=""
@@ -68,10 +72,14 @@ export default function CustomizedInputBase({room,idReceptor}) {
         placeholder="Envie sua mengem "
         inputProps={{ 'aria-label': 'search ' }}
         onChange={e=>setMensagem(e.target.value)} value={mensagem}
+        onKeyUp={e=> enviarComEnter(e)}
       />
       
       <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
-      <IconButton color="primary" sx={{ p: '10px' }} aria-label="directions" onClick={enviar}>
+      <IconButton color="primary" sx={{ p: '10px' }} aria-label="directions" 
+         onClick={enviar}
+         
+      >
         <NearMeIcon />
       </IconButton>
     </Paper>

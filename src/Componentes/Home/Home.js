@@ -23,7 +23,7 @@ export default function Home() {
   
   //const [setNomeDoDocumento]=useState("")
 
-
+  
   useEffect(()=>{
     const mensageRef = query(collection(db,"chats"),where("sala","==",room),orderBy('uid'))
     

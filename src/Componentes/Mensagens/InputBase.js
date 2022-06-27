@@ -52,9 +52,10 @@ export default function InputBase({room,idReceptor}) {
           document.querySelector(".mensagens").scrollTop=1000000
         }
         scroll()
+        console.log('mensagem enviada')
        }
     }
- 
+    
   return (
     <div className='inputMensage'>
         <div className='inputMessagItem'><input className='inputMessagItem' onChange={e=>setMensagem(e.target.value)} value={mensagem}/></div>

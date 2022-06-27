@@ -52,14 +52,21 @@ export default function InputBase({room,idReceptor}) {
           document.querySelector(".mensagens").scrollTop=1000000
         }
         scroll()
+        console.log('mensagem enviada')
        }
     }
- 
+    alert('teset')
+    const enviarComEnter = (e)=>{
+       console.log(e+"teste")
+    }
   return (
     <div className='inputMensage'>
         <div className='inputMessagItem'><input className='inputMessagItem' onChange={e=>setMensagem(e.target.value)} value={mensagem}/></div>
         <Box sx={{ marginRight:"0px" }}>
-          <Fab color="success" aria-label="edit" sx={{width:"40px",height:"40px",marginTop:"0"}} onClick={enviar}>
+          <Fab color="success" aria-label="edit" sx={{width:"40px",height:"40px",marginTop:"0"}}
+             onClick={enviar} 
+            //  onKeyUp={e=> enviarComEnter(e.target.value)}
+          >
             <NearMeIcon sx={{width:"30px"}}/>
           </Fab>
         </Box>   
