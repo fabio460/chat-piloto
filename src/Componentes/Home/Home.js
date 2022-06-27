@@ -59,7 +59,7 @@ export default function Home() {
         <div className='HomeBody'>
           <div className='HomeSidebar '>
             <div className='HomeSideBarHeader'>
-              <div className='HomeSideBarHeaderLogo'><h1>chat</h1></div>
+              <div className='HomeSideBarHeaderLogo'><h1>Chat</h1></div>
               <div className='HomeSideBarHeaderAvatar'><Avatar src={user.photoURL}/></div>
             </div>
             <div className='HomeSideBarHeaderInput'>

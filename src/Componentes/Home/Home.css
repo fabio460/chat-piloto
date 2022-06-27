@@ -7,11 +7,15 @@
 }
 .HomeBody{
     display: flex;
+   
 }
 .HomeSidebar{
    height: 95vh; 
    width: 30%; 
    padding: 10px;
+   background-color: rgb(226, 240, 251);
+   margin: 10px;
+   border-radius: 5px;
 }
 .HomeMensage{
    display: block;
@@ -105,19 +109,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding:0px 10px;
-    background-color: rgb(93, 176, 249);
+   
+    
 }
 .HomeSideBarHeaderAvatar{
     display: none;
 }
 .HomeSideBarHeaderInput{
     
-    background-color: rgb(93, 176, 249);
     height: 60px;
 }
 .HomeSideBarHeaderUsuarios{
-    background-color: white;
+    
 }
 @media (max-width:500px) {
     .iconeFecharMensagem{
@@ -128,7 +131,7 @@
     
     }
     .HomeSidebar{
-        
+        margin: 0px;
         width: 100vw;
         height: 100vh;
     }
