@@ -5,6 +5,7 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import {collection, onSnapshot, query, where} from 'firebase/firestore'
 import db from '../../fireBaseConfig'
 import uteis from '../../funcoesUteis';
+import { Avatar } from '@mui/material';
 
 export default function ToggleButtonNotEmpty({user,setVisivel,setRoom,getIdReceptor}) {
   const [alignment, setAlignment] = React.useState('left');
@@ -82,7 +83,7 @@ export default function ToggleButtonNotEmpty({user,setVisivel,setRoom,getIdRecep
                         margin:"5px",
                         padding:"5px",
                     }} id={elem.uid}>
-                       <img style={{borderRadius:"50%",width:"60px",marginRight:"10px"}} alt={elem.nome} src={elem.avatar} id={elem.uid}/>
+                       <Avatar style={{borderRadius:"50%",width:"40px",marginRight:"10px"}} alt={elem.nome} src={elem.avatar} id={elem.uid}/>
                        <div  id={elem.uid}>{elem.nome}</div>
                        
                     </div>

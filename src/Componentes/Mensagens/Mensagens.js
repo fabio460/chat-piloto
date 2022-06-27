@@ -24,7 +24,16 @@ export default function Mensagens({mensagens,room,getDocumento,user,idDaMensagem
                                     } src={elem.photoURL} alt=''/>
                                   </div>
                                   <div style={{display:"flex"}}>
-                                  <span  id={elem.documento}><AlertDialog id={elem.documento}/></span>
+                                  
+                                  <strong
+                                    id={elem.documento}
+                                    style={{color:'red',cursor:"pointer",padding:"0px",margin:" 0px",width:"12px",
+                                       alignItems:"center",
+                                       display:elem.usuarioLogado === user.displayName?"none":"flex"
+                                    }}
+                                  >
+                                      <AlertDialog id={elem.documento}/>
+                                  </strong>
                                     <div onClick={()=>getDocumento(elem.documento)} className='mensagemItem'>{elem.mensagem}
                                        
                                        <div className={
@@ -34,6 +43,22 @@ export default function Mensagens({mensagens,room,getDocumento,user,idDaMensagem
                                        }>
                                         {elem.data.toString()}</div>
                                     </div>
+
+                                    <strong
+                                      id={elem.documento}
+                                      style={{color:'blue',cursor:"pointer",padding:"0px",
+                                        margin:" 0px",
+                                        width:"0px",
+                                        alignItems:"center",
+                                        justifyContent:"center",
+                                        background:"",
+                                        height:"",
+                                        display:elem.usuarioLogado === user.displayName?"flex":"none"
+                                      }}
+                                    >
+                                      
+                                      <AlertDialog id={elem.documento}/>
+                                  </strong>
                                   </div>
                                   <div className='imagemAvatarItem'>
                                     <img className={
