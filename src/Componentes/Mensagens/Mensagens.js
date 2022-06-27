@@ -1,5 +1,6 @@
 import React from 'react'
-import InputBase from '../imputMensagens/InputBase'
+import CustomizedInputBase from '../Mensagens/CustomizedInputBase';
+
 
 import AlertDialog from './AlertDialog';
 export default function Mensagens({mensagens,room,getDocumento,user,idDaMensagem}) {
@@ -46,7 +47,10 @@ export default function Mensagens({mensagens,room,getDocumento,user,idDaMensagem
                         </div>    
                       </div>  
                  
-                 <div className='inputMensagemContainer'><InputBase room={room} idReceptor={idDaMensagem}/></div>
+                 <div className='inputMensagemContainer'>
+                    {/* <InputBase room={room} idReceptor={idDaMensagem}/> */}
+                    <CustomizedInputBase room={room} idReceptor={idDaMensagem}/>
+                  </div>
               </div>
     </div>
   )

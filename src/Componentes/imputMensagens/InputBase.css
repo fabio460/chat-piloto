@@ -24,7 +24,10 @@
 }
 .inputMensagemContainer{
     background-color: rgb(226, 240, 251);
-    
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 @media (max-width:500px) {
     .display{

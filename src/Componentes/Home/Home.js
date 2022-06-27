@@ -10,8 +10,8 @@ import { collection,where, onSnapshot, orderBy, query } from 'firebase/firestore
 import db from '../../fireBaseConfig';
 import Mensagens from '../Mensagens/Mensagens';
 import { Avatar } from '@mui/material';
-import CustomizedInputBase from '../CustomizedInputBase';
-
+import CustomizedInputBase from '../SideBar/CustomizedInputBase';
+import AnnouncementIcon from '@mui/icons-material/Announcement';
 export default function Home() {
   const auth = getAuth();
   const [user] = useAuthState(auth);
@@ -75,7 +75,10 @@ export default function Home() {
             
             <div className='HomeMessageBody'>
             {room === 0 
-              ?<div>não ha mensagens</div>
+              ?<div className='HomeMessageBodySemMensagem'>
+                <AnnouncementIcon  sx={{fontSize:"200px",color:"green"}}/>
+                <h1> não ha mensagens</h1>
+              </div>
               :<Mensagens user={user} room={room} getDocumento={getDocumento} idDaMensagem={idDaMensagem} mensagens={mensagens}/>
             }
             </div>
