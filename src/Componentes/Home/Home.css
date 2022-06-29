@@ -7,13 +7,13 @@
 }
 .HomeBody{
     display: flex;
-   
+    
 }
 .mensagensContainer{
     border-radius: 5px;
 }
 .HomeSidebar{
-   height: 93.5vh; 
+   
    width: 30%; 
    padding: 10px;
    background-color:rgb(159, 181, 199);
@@ -27,6 +27,7 @@
    display: block;
    padding: 10px;
    width: 100%;
+    
 }
 
 .sumir{
@@ -59,6 +60,11 @@
 }
 .mensagens::-webkit-scrollbar-thumb{
     background-color: rgb(156, 158, 158);
+}
+
+.sideBarUserContainers{
+    max-height: 450px;
+    background-color: aqua;
 }
 .usuarioLogado .mensagemItem{
     background-color: rgb(152, 255, 152);
