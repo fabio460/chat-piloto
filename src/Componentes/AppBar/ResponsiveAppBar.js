@@ -46,7 +46,7 @@ const ResponsiveAppBar = ({user}) => {
     uteis.esconderInput()
   }
   return (
-    <AppBar position="static" sx={{background:"rgb(226, 240, 251)",color:"black"}}>
+    <AppBar position="static" sx={{background:"rgb(42, 165, 248)",color:"black"}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />

@@ -27,12 +27,12 @@ export default function Mensagens({mensagens,room,getDocumento,user,idDaMensagem
                                   
                                   <strong
                                     id={elem.documento}
-                                    style={{color:'red',cursor:"pointer",padding:"0px",margin:" 0px",width:"12px",
+                                    style={{color:"gray",cursor:"pointer",padding:"0px",margin:" 0px",width:"7px",
                                        alignItems:"center",
                                        display:elem.usuarioLogado === user.displayName?"none":"flex"
                                     }}
                                   >
-                                      <AlertDialog id={elem.documento}/>
+                                      <AlertDialog id={elem.documento} />
                                   </strong>
                                     <div onClick={()=>getDocumento(elem.documento)} className='mensagemItem'>{elem.mensagem}
                                        
@@ -46,7 +46,7 @@ export default function Mensagens({mensagens,room,getDocumento,user,idDaMensagem
 
                                     <strong
                                       id={elem.documento}
-                                      style={{color:'blue',cursor:"pointer",padding:"0px",
+                                      style={{color:'gray',cursor:"pointer",padding:"0px",
                                         margin:" 0px",
                                         width:"0px",
                                         alignItems:"center",

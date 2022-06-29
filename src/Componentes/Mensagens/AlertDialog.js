@@ -30,7 +30,7 @@ export default function AlertDialog({id}) {
 
   return (
     <div>
-        <MoreVertIcon onClick={handleClickOpen}/>
+        <MoreVertIcon onClick={handleClickOpen} fontSize='6px'/>
       <Dialog
         open={open}
         onClose={handleClose}
