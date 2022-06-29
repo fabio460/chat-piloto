@@ -10,7 +10,7 @@ export default function CustomizedInputBase() {
   return (
     <Paper
       component=""
-      sx={{ p: '2px 6px', display: 'flex', alignItems: 'center', width: 320,margin:"auto ",borderRadius:"30px" }}
+      sx={{ p: '2px 5px', display: 'flex', alignItems: 'center', width: 312,margin:"auto ",borderRadius:"10px" }}
     >
      
       <InputBase
