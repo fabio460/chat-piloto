@@ -1,19 +1,12 @@
 import * as React from 'react';
-import Stack from '@mui/material/Stack';
-import ToggleButton from '@mui/material/ToggleButton';
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+
 import {collection, onSnapshot, orderBy, query, where} from 'firebase/firestore'
 import db from '../../fireBaseConfig'
 import uteis from '../../funcoesUteis';
 import { Avatar } from '@mui/material';
 import {useDispatch} from 'react-redux'
+import  './SideBar.css';
 export default function ToggleButtonNotEmpty({user,setVisivel,setRoom,getIdReceptor}) {
-  const [alignment, setAlignment] = React.useState('left');
-  const handleAlignment = (event, newAlignment) => {
-    if (newAlignment !== null) {
-      setAlignment(newAlignment);
-    }
-  };
   
   const [idLogado,setIdLogado] =React.useState(null)
 
@@ -56,6 +49,11 @@ export default function ToggleButtonNotEmpty({user,setVisivel,setRoom,getIdRecep
           type:"documento",
           payload:{doc:doc._key.path.segments[6]}
         })
+        dispath({
+          type:"receptor",
+          payload:{receptor:doc.data()}
+        })
+        document.querySelector('.avatarReceptorMensage').style="display:block"
       })
     })
     //uteis.mostrarInput()
@@ -74,45 +72,26 @@ export default function ToggleButtonNotEmpty({user,setVisivel,setRoom,getIdRecep
     uteis.abrirMensagens()
    
   }
- 
-
   return (
-    <Stack direction="column" spacing={0}>
-      <ToggleButtonGroup
-        value={alignment}
-        exclusive
-        onChange={handleAlignment}
-        aria-label="text alignment"
-        sx={{display:"flex",flexDirection:"column",margin:"0px",border:"none"}}
-      >
-       
+
+    <div>
         {users.map((elem,key)=>{
-          return <ToggleButton value={elem.uid} id={elem.uid}
-                    sx={{margin:"0px",border:"none",padding:"0px"}}
-                    onClick={ getUsers}
-                  >
-                    <div  style={{
-                        display:"flex",
-                        justifyContent:"space-between",
-                        width:"100%",
-                        
-                        margin:"5px",
-                        padding:"5px",
-                    }} id={elem.uid}>
-                       <Avatar style={{borderRadius:"50%",width:"40px",marginRight:"10px"}}
-                          alt={elem.nome}
-                          src={elem.avatar}
-                          id={elem.uid}/>
-                       <div  id={elem.uid}>
-                         <div id={elem.uid}>{elem.nome}</div>
-                         <div id={elem.uid}>{elem.ultimaMensagem[0]}</div>
-                       </div>
-                       <div style={{margin:"0px 15px",fontSize:"10px"}}>{elem.ultimaMensagem[1]}</div>
+         return <div 
+                   value={elem.uid} id={elem.uid}
+                   className="sideBarUserContainers"
+                   onClick={ getUsers}
+                >
+                  
+                  <div id={elem.uid} className='sideBarUserNomeMensagens'>
+                    <Avatar src={elem.avatar} id={elem.uid} sx={{marginRight:"8px"}}/>
+                    <div>
+                      <div className='sideBarUserNomeMensagensItemNome' id={elem.uid}>{elem.nome}</div>
+                      <div className='sideBarUserNomeMensagensItemMensagem' id={elem.uid}>{elem.ultimaMensagem[0]}</div>
                     </div>
-                    
-                </ToggleButton>
+                  </div>
+                  <div className='sideBarUserHoras' id={elem.uid}>{elem.ultimaMensagem[1]}</div>
+                </div>      
         })}
-      </ToggleButtonGroup>
-    </Stack>
+      </div>     
   );
 }

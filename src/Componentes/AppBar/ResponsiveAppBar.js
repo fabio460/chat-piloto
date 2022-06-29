@@ -14,13 +14,15 @@ import AdbIcon from '@mui/icons-material/Adb';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { getAuth, signOut } from 'firebase/auth';
 import uteis from '../../funcoesUteis'
+import { useSelector } from 'react-redux';
+import '../AppBar/AppBar.css'
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Logout'];
 
 const ResponsiveAppBar = ({user}) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-
+  const receptor = useSelector(state=>state.ReceptorRducer.receptor ) 
   // const handleOpenNavMenu = (event) => {
   //   setAnchorElNav(event.currentTarget);
   // };
@@ -147,6 +149,7 @@ const ResponsiveAppBar = ({user}) => {
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src={user.photoURL} />
+                <div  className='avatarReceptorMensage'><Avatar alt="Remy Sharp" src={receptor.avatar} sx={{marginLeft:"-15px"}}/></div>
               </IconButton>
             </Tooltip>
             

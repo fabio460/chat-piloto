@@ -9,9 +9,10 @@ import ToggleButtonNotEmpty from '../SideBar/ToggleButtonNotEmpty';
 import { collection,where, onSnapshot, orderBy, query } from 'firebase/firestore';
 import db from '../../fireBaseConfig';
 import Mensagens from '../Mensagens/Mensagens';
-import { Avatar } from '@mui/material';
+
 import CustomizedInputBase from '../SideBar/CustomizedInputBase';
 import AnnouncementIcon from '@mui/icons-material/Announcement';
+import PopoverPopupState from './PopoverPopupState';
 export default function Home() {
   const auth = getAuth();
   const [user] = useAuthState(auth);
@@ -60,7 +61,7 @@ export default function Home() {
           <div className='HomeSidebar '>
             <div className='HomeSideBarHeader'>
               <div className='HomeSideBarHeaderLogo'><h1>Chat</h1></div>
-              <div className='HomeSideBarHeaderAvatar'><Avatar src={user.photoURL}/></div>
+              <div className='HomeSideBarHeaderAvatar'><PopoverPopupState/></div>
             </div>
             <div className='HomeSideBarHeaderInput'>
               <CustomizedInputBase/>
