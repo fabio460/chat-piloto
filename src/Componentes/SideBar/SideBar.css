@@ -1,0 +1,29 @@
+.sideBarUserContainers{
+    padding: 7px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    margin: 8px;
+    border-radius: 5px;
+    width: 90%;
+}
+.sideBarUserContainers:hover{
+    background-color: rgb(250, 250, 250);
+}
+.sideBarUserNomeMensagens{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.sideBarUserHoras{
+    display: flex;
+    align-items: flex-end;
+    font-size: 12px;
+}
+.sideBarUserNomeMensagensItemMensagem{
+   color: grey;
+}
+.sideBarUserNomeMensagensItemNome{
+    font-weight: bold;
+}
