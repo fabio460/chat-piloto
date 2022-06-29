@@ -10,13 +10,12 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { getAuth, signOut } from 'firebase/auth';
 import uteis from '../../funcoesUteis'
 import { useSelector } from 'react-redux';
 import '../AppBar/AppBar.css'
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['', '', ''];
 const settings = ['Logout'];
 
 const ResponsiveAppBar = ({user}) => {
@@ -45,16 +44,21 @@ const ResponsiveAppBar = ({user}) => {
     uteis.fecharMensagens()
     uteis.esconderInput()
   }
+
+  const nomeCompleto = user.displayName
+  let aux = nomeCompleto.split(' ')
+
+  const nome = aux[0]
   return (
     <AppBar position="static" sx={{background:"rgb(159, 181, 199)",color:"black"}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <Avatar sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} src={user.photoURL}/>
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="/"
+            component="div"
+            href=""
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -65,7 +69,7 @@ const ResponsiveAppBar = ({user}) => {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            {nome}
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -114,7 +118,7 @@ const ResponsiveAppBar = ({user}) => {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
           <Typography
             variant="h5"
             noWrap
@@ -131,7 +135,7 @@ const ResponsiveAppBar = ({user}) => {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            {nome}
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
@@ -148,8 +152,11 @@ const ResponsiveAppBar = ({user}) => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src={user.photoURL} />
-                <div  className='avatarReceptorMensage'><Avatar alt="Remy Sharp" src={receptor.avatar} sx={{marginLeft:"-15px"}}/></div>
+                
+                <div  className='avatarReceptorMensage'>
+                  <Avatar alt="Remy Sharp" src={user.photoURL} sx={{ width: 35, height: 35 }}/>
+                  <Avatar alt="Remy Sharp" src={receptor.avatar} sx={{marginLeft:"-15px",width:35,height:35}}/>
+                </div>
               </IconButton>
             </Tooltip>
             

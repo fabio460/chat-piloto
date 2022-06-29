@@ -53,7 +53,7 @@ export default function ToggleButtonNotEmpty({user,setVisivel,setRoom,getIdRecep
           type:"receptor",
           payload:{receptor:doc.data()}
         })
-        document.querySelector('.avatarReceptorMensage').style="display:block"
+        document.querySelector('.avatarReceptorMensage').style="display:flex"
       })
     })
     //uteis.mostrarInput()
