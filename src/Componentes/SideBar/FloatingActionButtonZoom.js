@@ -104,7 +104,7 @@ export default function FloatingActionButtonZoom({user,setVisivel,setRoom,getIdR
         bgcolor: 'background.paper',
         width: "100%",
         position: 'relative',
-        height: 450,
+        height: 490,
         margin:"auto"
       }}
     >
