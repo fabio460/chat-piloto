@@ -154,8 +154,8 @@ const ResponsiveAppBar = ({user}) => {
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 
                 <div  className='avatarReceptorMensage'>
-                  <Avatar alt="Remy Sharp" src={user.photoURL} sx={{ width: 35, height: 35 }}/>
-                  <Avatar alt="Remy Sharp" src={receptor.avatar} sx={{marginLeft:"-15px",width:35,height:35}}/>
+                  <Avatar alt={user.displayName} src={user.photoURL} sx={{ width: 35, height: 35 }}/>
+                  <Avatar alt={receptor.nome} src={receptor.avatar} sx={{marginLeft:"-15px",width:35,height:35}}/>
                 </div>
               </IconButton>
             </Tooltip>

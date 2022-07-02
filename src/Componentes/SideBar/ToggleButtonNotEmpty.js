@@ -23,25 +23,7 @@ export default function ToggleButtonNotEmpty({user,setVisivel,setRoom,getIdRecep
   }
   let [users,setUsers] =React.useState([])
 
-
-
-
-  // function getUltimaMensagem(params) {
-  //   const ref = query(collection(db,'chats'))
-  //   onSnapshot(ref,(snap)=>{
-  //     let salas = []
-  //     snap.docs.forEach(doc=>{
-  //       salas.push(doc.data().sala)
-  //     })
-  //     salas = [... new Set(salas)]
-  //     console.log(salas)
-  //   })
-  // }
-
-
-
   React.useEffect(()=>{
-    //getUltimaMensagem()
     let usuariosRef = query(collection(db,'user'),orderBy("hora","desc"))
     onSnapshot(usuariosRef,(snapshot)=>{
       let aux = []
@@ -57,10 +39,7 @@ export default function ToggleButtonNotEmpty({user,setVisivel,setRoom,getIdRecep
   },[user])
   
   const dispath = useDispatch()
-
-
   const getUsers = (e)=>{
-
     const ref = query(collection(db,"user"),where("uid","==",parseInt(e.target.id)))
     onSnapshot(ref,(snap)=>{
       snap.docs.forEach(doc=>{
@@ -75,21 +54,14 @@ export default function ToggleButtonNotEmpty({user,setVisivel,setRoom,getIdRecep
         document.querySelector('.avatarReceptorMensage').style="display:flex"
       })
     })
-    //uteis.mostrarInput()
-    
-    setVisivel(true)
-     
+     setVisivel(true) 
      setRoom(uteis.gerarSala( e.target.id , idLogado))
-     //getIdReceptor()
      getIdReceptor(parseInt(e.target.id))
      function scroll(params) {
       document.querySelector(".mensagens").scrollTop=1000000
     }
     scroll()
-    
-    
     uteis.abrirMensagens()
-   
   }
 
 
@@ -104,7 +76,7 @@ export default function ToggleButtonNotEmpty({user,setVisivel,setRoom,getIdRecep
                 >
                   
                   <div id={elem.uid} className='sideBarUserNomeMensagens'>
-                    <Avatar src={elem.avatar} id={elem.uid} sx={{marginRight:"8px"}}/>
+                    <Avatar src={elem.avatar} alt={elem.nome} id={elem.uid} sx={{marginRight:"8px"}}/>
                       <div className='sideBarUserNomeMensagensItemNome' id={elem.uid}>{elem.nome}</div>
                   </div>
 

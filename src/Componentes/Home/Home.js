@@ -5,7 +5,7 @@ import { getAuth } from 'firebase/auth'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import ResponsiveAppBar from '../AppBar/ResponsiveAppBar';
 
-import ToggleButtonNotEmpty from '../SideBar/ToggleButtonNotEmpty';
+
 import { collection,where, onSnapshot, orderBy, query } from 'firebase/firestore';
 import db from '../../fireBaseConfig';
 import Mensagens from '../Mensagens/Mensagens';
@@ -13,7 +13,8 @@ import Mensagens from '../Mensagens/Mensagens';
 import CustomizedInputBase from '../SideBar/CustomizedInputBase';
 import AnnouncementIcon from '@mui/icons-material/Announcement';
 import PopoverPopupState from './PopoverPopupState';
-import MensagensSideBar from '../SideBar/MensagensSideBar';
+
+import FloatingActionButtonZoom from '../SideBar/FloatingActionButtonZoom';
 export default function Home() {
   const auth = getAuth();
   const [user] = useAuthState(auth);
@@ -67,9 +68,11 @@ export default function Home() {
             <div className='HomeSideBarHeaderInput'>
               <CustomizedInputBase/>
             </div>
-            <div className='HomeSideBarHeaderUsuarios'>
+            <div >
+                <FloatingActionButtonZoom user={user} setVisivel={setVisivel} setRoom={setRoom} getIdReceptor={getIdReceptor}/>
+{/*                 
                 <ToggleButtonNotEmpty user={user} setVisivel={setVisivel} setRoom={setRoom} getIdReceptor={getIdReceptor}/>
-                <MensagensSideBar/>
+                <MensagensSideBar/> */}
             </div>
             
           </div>
