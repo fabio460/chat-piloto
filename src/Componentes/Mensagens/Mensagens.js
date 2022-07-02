@@ -8,7 +8,7 @@ export default function Mensagens({mensagens,room,getDocumento,user,idDaMensagem
   
   return (
     <div>
-        <div className='container'>
+        <div className='containerBody'>
                     <div className='mensagensContainer'>
                         <div className='mensagens'>
                             {mensagens.map(elem=>{

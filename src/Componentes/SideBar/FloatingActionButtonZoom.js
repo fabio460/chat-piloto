@@ -128,10 +128,15 @@ export default function FloatingActionButtonZoom({user,setVisivel,setRoom,getIdR
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          <div className='HomeSideBarHeaderUsuarios' ><MensagensSideBar user={user} setVisivel={setVisivel} setRoom={setRoom} getIdReceptor={getIdReceptor}/></div>
+          <div className='HomeSideBarHeaderUsuarios' >
+            <MensagensSideBar user={user} setVisivel={setVisivel} setRoom={setRoom} getIdReceptor={getIdReceptor} />
+          </div>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-        <ToggleButtonNotEmpty user={user} setVisivel={setVisivel} setRoom={setRoom} getIdReceptor={getIdReceptor}/>
+        <ToggleButtonNotEmpty 
+           user={user} setVisivel={setVisivel} setRoom={setRoom} getIdReceptor={getIdReceptor}
+           setValue={setValue} 
+        />
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
             teste

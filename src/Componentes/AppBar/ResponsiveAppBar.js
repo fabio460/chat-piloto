@@ -50,7 +50,7 @@ const ResponsiveAppBar = ({user}) => {
 
   const nome = aux[0]
   return (
-    <AppBar position="static" sx={{background:"rgb(159, 181, 199)",color:"black"}}>
+    <AppBar position="static" sx={{background:"rgb(159, 181, 199)",color:"black",margin:"auto"}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Avatar sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} src={user.photoURL}/>

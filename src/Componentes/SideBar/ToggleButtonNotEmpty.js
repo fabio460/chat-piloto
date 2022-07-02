@@ -6,7 +6,7 @@ import uteis from '../../funcoesUteis';
 import { Avatar } from '@mui/material';
 import {useDispatch} from 'react-redux'
 import  './SideBar.css';
-export default function ToggleButtonNotEmpty({user,setVisivel,setRoom,getIdReceptor}) {
+export default function ToggleButtonNotEmpty({user,setVisivel,setRoom,getIdReceptor,setValue}) {
   
   const [idLogado,setIdLogado] =React.useState(null)
 
@@ -60,6 +60,7 @@ export default function ToggleButtonNotEmpty({user,setVisivel,setRoom,getIdRecep
      function scroll(params) {
       document.querySelector(".mensagens").scrollTop=1000000
     }
+    setValue(0)
     scroll()
     uteis.abrirMensagens()
   }
@@ -67,7 +68,7 @@ export default function ToggleButtonNotEmpty({user,setVisivel,setRoom,getIdRecep
 
   return (
 
-    <div>
+    <div >
         {users.map((elem,key)=>{
          return <div 
                    value={elem.uid} id={elem.uid}
