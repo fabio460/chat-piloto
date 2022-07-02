@@ -107,18 +107,17 @@ useEffect(()=>{
               return <div>
                 <div onClick={getUsers} id={user.email === item.usuario ? item.receptor.uid : item.uid} className='sidebarListaDeMensagensElemento'>
 
-                    <div id={user.email === item.usuario ? item.receptor.uid : item.uid} className='sidebarListaDeMensagensElementoLeft'>
+                    <div onClick={getUsers} id={user.email === item.usuario ? item.receptor.uid : item.uid} className='sidebarListaDeMensagensElementoLeft'>
                       <Avatar src={user.email === item.usuario?item.receptor.avatar:item.avatar}
+                        
+                        onClick={getUsers}
+                        id={user.email === item.usuario ? item.receptor.uid : item.uid}
                         alt={user.email === item.usuario?item.receptor.nome:item.nome}
                         sx={{marginRight:"10px"}}
                       />
-                      <div className='sidebarListaDeMensagensElementoRight' id={user.email === item.usuario ? item.receptor.uid : item.uid}>
-                        <div id={user.email === item.usuario ? item.receptor.uid : item.uid}>
-                           {user.email === item.usuario?
-                             item.receptor.nome
-                             :
-                             item.nome
-                           }
+                      <div onClick={getUsers} className='sidebarListaDeMensagensElementoRight' id={user.email === item.usuario ? item.receptor.uid : item.uid}>
+                        <div onClick={getUsers} id={user.email === item.usuario ? item.receptor.uid : item.uid}>
+                           {user.email === item.usuario?item.receptor.nome:item.nome}
                         </div>
                         <div id={user.email === item.usuario ? item.receptor.uid : item.uid} class=" text-truncate" style={{width:"200px",color:"gray"  }} >{item.mensagem}</div>
                       </div>
