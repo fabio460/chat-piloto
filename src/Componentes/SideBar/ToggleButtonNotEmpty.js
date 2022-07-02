@@ -8,6 +8,13 @@ import {useDispatch} from 'react-redux'
 import  './SideBar.css';
 export default function ToggleButtonNotEmpty({user,setVisivel,setRoom,getIdReceptor,setValue}) {
   
+  function salvarRoomRedux(room) {
+    dispath({
+      type:"sala",
+      payload:{sala:room}
+    })
+  }
+
   const [idLogado,setIdLogado] =React.useState(null)
 
   async function gerarIdUsuarioLogado(user) {
@@ -56,6 +63,7 @@ export default function ToggleButtonNotEmpty({user,setVisivel,setRoom,getIdRecep
     })
      setVisivel(true) 
      setRoom(uteis.gerarSala( e.target.id , idLogado))
+     salvarRoomRedux(uteis.gerarSala( e.target.id , idLogado))
      getIdReceptor(parseInt(e.target.id))
      function scroll(params) {
       document.querySelector(".mensagens").scrollTop=1000000

@@ -6,10 +6,12 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { doc, deleteDoc } from "firebase/firestore";
+import { doc, deleteDoc, query, collection, onSnapshot, where } from "firebase/firestore";
 import db from '../../fireBaseConfig';
+import { useSelector } from 'react-redux';
 export default function AlertDialog({id}) {
   const [open, setOpen] = React.useState(false);
+  const sala = useSelector(state=> state.salaReducer.sala)
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -19,9 +21,25 @@ export default function AlertDialog({id}) {
     setOpen(false);
   };
 
+  
   const deletar = async()=>{
     try {
+        
+       
+        const refChat = query(collection(db,"chats"),where("sala","==",sala))
+        onSnapshot(refChat,snap=>{
+          let aux = []
+          snap.docs.forEach(doc=>{
+            aux.push(doc.data())
+            //alert("tem objeto")
+          })
+          if(aux.length === 0){
+            deleteDoc(doc(db, "ultimasMensagens", sala))
+          }
+          console.log(aux.length)
+        })
         await deleteDoc(doc(db, "chats", id))
+        
     } catch (error) {
         console.log(error)
     }

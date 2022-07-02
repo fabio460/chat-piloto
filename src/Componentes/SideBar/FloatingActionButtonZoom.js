@@ -119,7 +119,7 @@ export default function FloatingActionButtonZoom({user,setVisivel,setRoom,getIdR
         >
           <Tab label="Conversas" {...a11yProps(0)} />
           <Tab label="Usuarios" {...a11yProps(1)} />
-          <Tab label="dele" {...a11yProps(2)} />
+          <Tab label="deletar" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
       <SwipeableViews

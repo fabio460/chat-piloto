@@ -14,7 +14,12 @@ const [user] = useAuthState(getAuth());
 const [idLogado,setIdLogado] =React.useState(null)
 const dispath = useDispatch()
 
-
+function salvarRoomRedux(room) {
+  dispath({
+    type:"sala",
+    payload:{sala:room}
+  })
+}
 
 async function gerarIdUsuarioLogado(user) {
     
@@ -63,6 +68,7 @@ const getUsers = (e)=>{
   })
    setVisivel(true) 
    setRoom(uteis.gerarSala( e.target.id , idLogado))
+   salvarRoomRedux(uteis.gerarSala( e.target.id , idLogado))
    //getIdReceptor()
    getIdReceptor(parseInt(e.target.id))
    function scroll(params) {
@@ -84,9 +90,15 @@ useEffect(()=>{
         setMensagens(lista)
     }) 
     
-    
+
+
 
 },[]) 
+// function Sobrenome(nomeCompleto) {
+//   let texto = nomeCompleto.split(" ") 
+  
+//   return texto[0] 
+// } 
   return (
     <div className='sidebarListaDeMensagens' style={{cursor:"pointer"}}>
        {mensagens.map(item=>{
@@ -101,7 +113,13 @@ useEffect(()=>{
                         sx={{marginRight:"10px"}}
                       />
                       <div className='sidebarListaDeMensagensElementoRight' id={user.email === item.usuario ? item.receptor.uid : item.uid}>
-                        <div id={user.email === item.usuario ? item.receptor.uid : item.uid}>{item.receptor.nome}</div>
+                        <div id={user.email === item.usuario ? item.receptor.uid : item.uid}>
+                           {user.email === item.usuario?
+                             item.receptor.nome
+                             :
+                             item.nome
+                           }
+                        </div>
                         <div id={user.email === item.usuario ? item.receptor.uid : item.uid} class=" text-truncate" style={{width:"200px",color:"gray"  }} >{item.mensagem}</div>
                       </div>
                     </div>

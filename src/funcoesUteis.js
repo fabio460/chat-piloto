@@ -47,6 +47,11 @@ const uteis ={
                 uid,
                 data
                 });
-     }
+     },
+     tirarSobrenome :(nomeCompleto)=> {
+        let texto = nomeCompleto
+        return texto.split(" ")[0]  
+     },
+     
 }
 export default uteis

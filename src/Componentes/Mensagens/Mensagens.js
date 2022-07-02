@@ -57,9 +57,11 @@ export default function Mensagens({mensagens,room,getDocumento,user,idDaMensagem
                                       }}
                                     >
                                       
-                                      <AlertDialog id={elem.documento}/>
+                                      <AlertDialog id={elem.documento} sala={" = sala"}/>
+                                     
                                   </strong>
                                   </div>
+                                
                                   <div className='imagemAvatarItem'>
                                     <img className={
                                       elem.usuarioLogado === user.displayName ?
@@ -75,6 +77,7 @@ export default function Mensagens({mensagens,room,getDocumento,user,idDaMensagem
                  
                  <div className='inputMensagemContainer'>
                     {/* <InputBase room={room} idReceptor={idDaMensagem}/> */}
+                    
                     <CustomizedInputBase room={room} idDaMensagem={idDaMensagem} idReceptor={idReceptor}/>
                   </div>
               </div>

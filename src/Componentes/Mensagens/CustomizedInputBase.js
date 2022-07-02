@@ -29,7 +29,7 @@ export default function CustomizedInputBase({room,idReceptor,idDaMensagem}) {
           setIdEmissor(doc.data().uid)
         })
       })
-      
+
     },[user])
     console.log(idEmissor)
     const enviar =async ()=>{
@@ -73,6 +73,7 @@ export default function CustomizedInputBase({room,idReceptor,idDaMensagem}) {
             receptor,
             room,
             usuario:user.email,
+            nome:user.displayName,
             avatar:user.photoURL
          }) 
 
@@ -130,10 +131,9 @@ export default function CustomizedInputBase({room,idReceptor,idDaMensagem}) {
       <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
       <IconButton color="primary" sx={{ p: '10px' }} aria-label="directions" 
          onClick={enviar}
-         
       >
         <NearMeIcon />
       </IconButton>
-    </Paper>
+  </Paper>
   );
 }
