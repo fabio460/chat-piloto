@@ -30,7 +30,11 @@
 .sidebarListaDeMensagensElemento{
     display: flex;
     justify-content: space-between;
-    padding:5px 10px;
+    padding:10px;
+    border-radius: 10px;
+}
+.sidebarListaDeMensagensElemento:hover{
+    background-color: rgb(207, 212, 212);
 }
 .sidebarListaDeMensagensElementoHora{
     display: flex;

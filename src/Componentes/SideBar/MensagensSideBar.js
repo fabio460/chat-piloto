@@ -101,10 +101,10 @@ useEffect(()=>{
                       />
                       <div className='sidebarListaDeMensagensElementoRight'>
                         <div id={item.receptor.uid}>{item.receptor.nome}</div>
-                        <div class=" text-truncate" style={{width:"200px"}} id={item.receptor.uid}>{item.mensagem}</div>
+                        <div class=" text-truncate" style={{width:"200px",color:"gray"}} id={item.receptor.uid}>{item.mensagem}</div>
                       </div>
                     </div>
-                    <div className='sidebarListaDeMensagensElementoHora'>{item.hora}</div>
+                    <div className='sidebarListaDeMensagensElementoHora' style={{fontSize:"11px"}}>{item.hora}</div>
       
                   </div>
               </div>
