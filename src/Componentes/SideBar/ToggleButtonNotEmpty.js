@@ -22,7 +22,26 @@ export default function ToggleButtonNotEmpty({user,setVisivel,setRoom,getIdRecep
     })
   }
   let [users,setUsers] =React.useState([])
+
+
+
+
+  // function getUltimaMensagem(params) {
+  //   const ref = query(collection(db,'chats'))
+  //   onSnapshot(ref,(snap)=>{
+  //     let salas = []
+  //     snap.docs.forEach(doc=>{
+  //       salas.push(doc.data().sala)
+  //     })
+  //     salas = [... new Set(salas)]
+  //     console.log(salas)
+  //   })
+  // }
+
+
+
   React.useEffect(()=>{
+    //getUltimaMensagem()
     let usuariosRef = query(collection(db,'user'),orderBy("hora","desc"))
     onSnapshot(usuariosRef,(snapshot)=>{
       let aux = []
@@ -68,10 +87,12 @@ export default function ToggleButtonNotEmpty({user,setVisivel,setRoom,getIdRecep
     }
     scroll()
     
- 
+    
     uteis.abrirMensagens()
    
   }
+
+
   return (
 
     <div>
@@ -84,12 +105,9 @@ export default function ToggleButtonNotEmpty({user,setVisivel,setRoom,getIdRecep
                   
                   <div id={elem.uid} className='sideBarUserNomeMensagens'>
                     <Avatar src={elem.avatar} id={elem.uid} sx={{marginRight:"8px"}}/>
-                    <div>
                       <div className='sideBarUserNomeMensagensItemNome' id={elem.uid}>{elem.nome}</div>
-                      <div className='sideBarUserNomeMensagensItemMensagem' id={elem.uid}>{elem.ultimaMensagem[0]}</div>
-                    </div>
                   </div>
-                  <div className='sideBarUserHoras' id={elem.uid}>{elem.ultimaMensagem[1]}</div>
+
                 </div>      
         })}
       </div>     

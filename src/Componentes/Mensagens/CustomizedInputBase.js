@@ -9,7 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import NearMeIcon from '@mui/icons-material/NearMe';
 import {useAuthState} from 'react-firebase-hooks/auth'
 import { getAuth } from 'firebase/auth';
-import { collection, doc, onSnapshot, query, setDoc, updateDoc, where } from 'firebase/firestore';
+import { addDoc, collection, doc, onSnapshot, query, setDoc, updateDoc, where } from 'firebase/firestore';
 import db from '../../fireBaseConfig';
 import { useSelector } from 'react-redux';
 export default function CustomizedInputBase({room,idReceptor,idDaMensagem}) {
@@ -20,6 +20,7 @@ export default function CustomizedInputBase({room,idReceptor,idDaMensagem}) {
   const auth = getAuth();
   const [user] = useAuthState(auth);
     const documents = useSelector(state=>state.documento.doc)
+    const receptor = useSelector(state=>state.ReceptorRducer.receptor)
     const enviar =async ()=>{
        if(mensagem !== ""){
         try {
@@ -43,25 +44,37 @@ export default function CustomizedInputBase({room,idReceptor,idDaMensagem}) {
             sala:room,
             uid:idDaMensagem,
             usuarioLogado:user.displayName,
-            documento
+            documento,
+            //receptor
           }
          );
-         let ultimaMensagem = [mensagem,hora+":"+minutos]
-         console.log(docRef)
-         async function upDate() {
+         let ultimaMensagem = [{
+            mensagem,
+            hora:hora+":"+minutos,
+            receptor
+          }]
 
+
+          setDoc(doc(db,'ultimasMensagens',room),{
+            mensagem,
+            hora:hora+":"+minutos,
+            receptor,
+            room,
+            usuario:user.email,
+            avatar:user.photoURL
+         }) 
+
+         console.log(docRef)
+
+
+         async function upDate() {
           const ref = query(collection(db,"user"),where("uid","==",parseInt(idReceptor)))
-          
           onSnapshot(ref,(snap)=>{
             let array = []
             snap.docs.forEach(doc=>{
-             
               array.push(doc._key.path.segments[6])
             })
-            //setDocuments(array[0])
           })
-
-      
           let usuarioReceptorRef = doc(db, "user", documents)
           await updateDoc(usuarioReceptorRef, {
             ultimaMensagem,
@@ -78,8 +91,6 @@ export default function CustomizedInputBase({room,idReceptor,idDaMensagem}) {
         function scroll(params) {
           document.querySelector(".mensagens").scrollTop=1000000
         }
-
-
         scroll()
        }
     }

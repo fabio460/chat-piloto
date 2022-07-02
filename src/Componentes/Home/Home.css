@@ -138,6 +138,15 @@
 }
 .HomeSideBarHeaderUsuarios{
     display: block;
+    height: 400px;
+    overflow-y: scroll;
+}
+.HomeSideBarHeaderUsuarios::-webkit-scrollbar{
+    width: 8px;
+}
+.HomeSideBarHeaderUsuarios::-webkit-scrollbar-thumb{
+    background-color: gray;
+    border-radius: 5px;
 }
 .HomeMessageBodySemMensagem{
     display: flex;

@@ -13,6 +13,7 @@ import Mensagens from '../Mensagens/Mensagens';
 import CustomizedInputBase from '../SideBar/CustomizedInputBase';
 import AnnouncementIcon from '@mui/icons-material/Announcement';
 import PopoverPopupState from './PopoverPopupState';
+import MensagensSideBar from '../SideBar/MensagensSideBar';
 export default function Home() {
   const auth = getAuth();
   const [user] = useAuthState(auth);
@@ -68,6 +69,7 @@ export default function Home() {
             </div>
             <div className='HomeSideBarHeaderUsuarios'>
                 <ToggleButtonNotEmpty user={user} setVisivel={setVisivel} setRoom={setRoom} getIdReceptor={getIdReceptor}/>
+                <MensagensSideBar/>
             </div>
             
           </div>
