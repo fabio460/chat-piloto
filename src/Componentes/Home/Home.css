@@ -138,7 +138,7 @@
 }
 .HomeSideBarHeaderUsuarios{
     display: block;
-    height: 400px;
+    height: 370px;
     overflow-y: scroll;
 }
 .HomeSideBarHeaderUsuarios::-webkit-scrollbar{
