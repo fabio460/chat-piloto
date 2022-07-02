@@ -102,7 +102,7 @@ export default function FloatingActionButtonZoom({user,setVisivel,setRoom,getIdR
     <Box
       sx={{
         bgcolor: 'background.paper',
-        width: 380,
+        width: "100%",
         position: 'relative',
         minHeight: 480,
         margin:"auto"
