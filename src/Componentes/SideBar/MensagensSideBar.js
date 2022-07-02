@@ -46,6 +46,7 @@ React.useEffect(()=>{
 
 
 const getUsers = (e)=>{  
+  
   const ref = query(collection(db,"user"),where("uid","==",parseInt(e.target.id)))
   onSnapshot(ref,(snap)=>{
     snap.docs.forEach(doc=>{
@@ -91,20 +92,20 @@ useEffect(()=>{
        {mensagens.map(item=>{
             if(user.email === item.usuario || user.email === item.receptor.email){
             
-              return <div >
-                <div onClick={getUsers} id={item.receptor.uid} className='sidebarListaDeMensagensElemento'>
+              return <div>
+                <div onClick={getUsers} id={user.email === item.usuario ? item.receptor.uid : item.uid} className='sidebarListaDeMensagensElemento'>
 
-                    <div id={item.receptor.uid} className='sidebarListaDeMensagensElementoLeft'>
+                    <div id={user.email === item.usuario ? item.receptor.uid : item.uid} className='sidebarListaDeMensagensElementoLeft'>
                       <Avatar src={user.email === item.usuario?item.receptor.avatar:item.avatar}
                         alt={user.email === item.usuario?item.receptor.nome:item.nome}
                         sx={{marginRight:"10px"}}
                       />
-                      <div className='sidebarListaDeMensagensElementoRight'>
-                        <div id={item.receptor.uid}>{item.receptor.nome}</div>
-                        <div class=" text-truncate" style={{width:"200px",color:"gray"}} id={item.receptor.uid}>{item.mensagem}</div>
+                      <div className='sidebarListaDeMensagensElementoRight' id={user.email === item.usuario ? item.receptor.uid : item.uid}>
+                        <div id={user.email === item.usuario ? item.receptor.uid : item.uid}>{item.receptor.nome}</div>
+                        <div id={user.email === item.usuario ? item.receptor.uid : item.uid} class=" text-truncate" style={{width:"200px",color:"gray"  }} >{item.mensagem}</div>
                       </div>
                     </div>
-                    <div className='sidebarListaDeMensagensElementoHora' style={{fontSize:"11px"}}>{item.hora}</div>
+                    <div id={user.email === item.usuario ? item.receptor.uid : item.uid} className='sidebarListaDeMensagensElementoHora' style={{fontSize:"11px"}} >{item.hora}</div>
       
                   </div>
               </div>

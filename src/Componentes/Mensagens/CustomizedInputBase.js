@@ -9,18 +9,29 @@ import MenuIcon from '@mui/icons-material/Menu';
 import NearMeIcon from '@mui/icons-material/NearMe';
 import {useAuthState} from 'react-firebase-hooks/auth'
 import { getAuth } from 'firebase/auth';
-import { addDoc, collection, doc, onSnapshot, query, setDoc, updateDoc, where } from 'firebase/firestore';
+import { collection, doc, onSnapshot, query, setDoc, updateDoc, where } from 'firebase/firestore';
 import db from '../../fireBaseConfig';
 import { useSelector } from 'react-redux';
 export default function CustomizedInputBase({room,idReceptor,idDaMensagem}) {
-
-
-  const [mensagem,setMensagem]=React.useState([])
-  
-  const auth = getAuth();
-  const [user] = useAuthState(auth);
+    
+    const [mensagem,setMensagem]=React.useState([])
+    const auth = getAuth();
+    const [user] = useAuthState(auth);
     const documents = useSelector(state=>state.documento.doc)
     const receptor = useSelector(state=>state.ReceptorRducer.receptor)
+    const [idEmissor,setIdEmissor]=React.useState([])
+
+
+    React.useEffect(()=>{
+      const idRef = query(collection(db,"user"),where("email","==",user.email))
+      onSnapshot(idRef,snap=>{
+        snap.docs.forEach(doc=>{
+          setIdEmissor(doc.data().uid)
+        })
+      })
+      
+    },[user])
+    console.log(idEmissor)
     const enviar =async ()=>{
        if(mensagem !== ""){
         try {
@@ -56,6 +67,7 @@ export default function CustomizedInputBase({room,idReceptor,idDaMensagem}) {
 
 
           setDoc(doc(db,'ultimasMensagens',room),{
+            uid:idEmissor,
             mensagem,
             hora:hora+":"+minutos,
             receptor,
