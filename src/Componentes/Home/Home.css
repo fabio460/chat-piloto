@@ -196,4 +196,11 @@
     .avatarUsuario{
         margin-right: 3px;
     }
+    .HomeSideBarHeader{
+        padding: 12px;
+        
+    }
+    .HomeSideBarHeaderInput{
+        padding: 1px 10px;
+    }
 }

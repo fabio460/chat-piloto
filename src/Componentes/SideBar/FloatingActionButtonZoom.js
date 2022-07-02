@@ -104,7 +104,7 @@ export default function FloatingActionButtonZoom({user,setVisivel,setRoom,getIdR
         bgcolor: 'background.paper',
         width: "100%",
         position: 'relative',
-        minHeight: 450,
+        height: 450,
         margin:"auto"
       }}
     >
@@ -119,7 +119,7 @@ export default function FloatingActionButtonZoom({user,setVisivel,setRoom,getIdR
         >
           <Tab label="Conversas" {...a11yProps(0)} />
           <Tab label="Usuarios" {...a11yProps(1)} />
-          <Tab label="Config" {...a11yProps(2)} />
+          <Tab label="dele" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
       <SwipeableViews
