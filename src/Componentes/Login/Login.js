@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider,FacebookAuthProvider } from "firebase/auth";
 import './Login.css'
 import { addDoc, collection, onSnapshot, orderBy, query, where } from 'firebase/firestore';
 import db from '../../fireBaseConfig';
 import Button from '@mui/material/Button';
 export default function Login() {
   const auth = getAuth();
-  
+  //const [signInWithFacebook, user, loading, error] = useSignInWithFacebook(auth);
   const provider = new GoogleAuthProvider();
+  const providerFaceBook = new FacebookAuthProvider()
   const [numUsuer,setNumUser]=useState(1)
  
   
@@ -40,31 +41,43 @@ export default function Login() {
   const logar = ()=>{
     signInWithPopup(auth, provider)
     .then(async(result) => {
-  
       const colRef = query(collection(db, "user"),where("email", "==", auth.currentUser.email))
       onSnapshot(colRef, (snapshot) => {
           let tamanhoArray = snapshot._snapshot.docChanges.length
-          
-          
           if (tamanhoArray === 0) {
                   cadastrarUsuario(auth.currentUser.email,auth.currentUser.displayName,"",auth.currentUser.photoURL,numUsuer,new Date())
                   console.log(auth.currentUser.email+" cadastrado com sucesso")    
-                 
           }        
       })
   
     }).catch((error) => {
   
-      // ...
     });
   }
+
+  const logarFaceBook = ()=>{
+    signInWithPopup(auth, providerFaceBook)
+    .then((result) => {
     
-  //console.log(db) 
+      const colRef = query(collection(db, "user"),where("email", "==", auth.currentUser.email))
+      onSnapshot(colRef, (snapshot) => {
+          let tamanhoArray = snapshot._snapshot.docChanges.length
+          if (tamanhoArray === 0) {
+                  cadastrarUsuario(auth.currentUser.email,auth.currentUser.displayName,"",auth.currentUser.photoURL,numUsuer,new Date())
+                  console.log(auth.currentUser.email+" cadastrado com sucesso")    
+          }        
+      })
+      
+    }).catch((error) => {
+      console.log(error)
+    });
+  }
   return (
     <div className='loginContainer'>
       <h1>Login</h1>
     
       <Button variant="contained" onClick={logar}>Logar com Google</Button>
+      <Button variant="contained" onClick={logarFaceBook}>Logar com logarFaceBook</Button>
     </div>
   )
 }

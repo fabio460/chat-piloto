@@ -70,9 +70,6 @@ export default function Home() {
             </div>
             <div >
                 <FloatingActionButtonZoom user={user} setVisivel={setVisivel} setRoom={setRoom} getIdReceptor={getIdReceptor}/>
-{/*                 
-                <ToggleButtonNotEmpty user={user} setVisivel={setVisivel} setRoom={setRoom} getIdReceptor={getIdReceptor}/>
-                <MensagensSideBar/> */}
             </div>
             
           </div>
