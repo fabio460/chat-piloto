@@ -3,15 +3,14 @@ import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-
-
 import NearMeIcon from '@mui/icons-material/NearMe';
 import {useAuthState} from 'react-firebase-hooks/auth'
 import { getAuth } from 'firebase/auth';
 import { collection, doc, onSnapshot, query, setDoc, updateDoc, where } from 'firebase/firestore';
 import db from '../../fireBaseConfig';
 import { useSelector } from 'react-redux';
+
+import EmojiBtn from './EmojiBtn';
 export default function CustomizedInputBase({room,idReceptor,idDaMensagem}) {
     
     const [mensagem,setMensagem]=React.useState([])
@@ -31,7 +30,7 @@ export default function CustomizedInputBase({room,idReceptor,idDaMensagem}) {
       })
 
     },[user])
-    console.log(idEmissor)
+    
     const enviar =async ()=>{
        if(mensagem !== ""){
         try {
@@ -112,23 +111,32 @@ export default function CustomizedInputBase({room,idReceptor,idDaMensagem}) {
            enviar()
          }
     }
+    const emoji = useSelector(state=>state.getEmoji.emoji)
+    React.useEffect(()=>{
+      setMensagem(mensagem=> mensagem + emoji)
+    },[emoji])
   return (
     <Paper
       component=""
       sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 900,margin:"auto ",borderRadius:"30px" }}
     >
-      <IconButton sx={{ p: '10px' }} aria-label="menu">
-        <MenuIcon />
+      <IconButton sx={{ p: '5px' }} aria-label="menu">
+        <EmojiBtn 
+          onChange={e=>setMensagem(res => res + e.target.value)} value={mensagem}
+          setMensagem={setMensagem}
+          mensagem={mensagem}
+        />
       </IconButton>
       <InputBase
         sx={{ ml: 1, flex: 1 }}
         placeholder="Envie sua mengem "
         inputProps={{ 'aria-label': 'search ' }}
-        onChange={e=>setMensagem(e.target.value)} value={mensagem}
+        onChange={e=>setMensagem(e.target.value )} value={mensagem}
         onKeyUp={e=> enviarComEnter(e)}
       />
       
       <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
+      
       <IconButton color="primary" sx={{ p: '10px' }} aria-label="directions" 
          onClick={enviar}
       >
