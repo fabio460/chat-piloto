@@ -15,7 +15,7 @@ import { green } from '@mui/material/colors';
 import Box from '@mui/material/Box';
 import ToggleButtonNotEmpty from './ToggleButtonNotEmpty';
 import MensagensSideBar from './MensagensSideBar';
-
+import '../Home/Home.css'
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -104,9 +104,10 @@ export default function FloatingActionButtonZoom({user,setVisivel,setRoom,getIdR
         bgcolor: 'background.paper',
         width: "100%",
         position: 'relative',
-        height: 450,
+        
         margin:"auto"
       }}
+      className='Box'
     >
       <AppBar position="static" color="default">
         <Tabs

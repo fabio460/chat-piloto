@@ -61,17 +61,16 @@ export default function Home() {
     <div className='Home'>
         <div className='HomeBody'>
           <div className='HomeSidebar '>
-            <div className='HomeSideBarHeader'>
-              <div className='HomeSideBarHeaderLogo'><h1>Chat</h1></div>
-              <div className='HomeSideBarHeaderAvatar'><PopoverPopupState/></div>
-            </div>
-            <div className='HomeSideBarHeaderInput'>
-              <CustomizedInputBase/>
-            </div>
-            <div >
-                <FloatingActionButtonZoom user={user} setVisivel={setVisivel} setRoom={setRoom} getIdReceptor={getIdReceptor}/>
-            </div>
-            
+              <div className='HomeSideBarHeader'>
+                <div className='HomeSideBarHeaderLogo'><h1>Chat</h1></div>
+                <div className='HomeSideBarHeaderAvatar'><PopoverPopupState/></div>
+              </div>
+              <div className='HomeSideBarHeaderInput'>
+                <CustomizedInputBase/>
+              </div>
+              <div >
+                  <FloatingActionButtonZoom user={user} setVisivel={setVisivel} setRoom={setRoom} getIdReceptor={getIdReceptor}/>
+              </div>
           </div>
           <div className='HomeMensage'>
           <div className='HomeHeader'><ResponsiveAppBar user={user}/></div>
